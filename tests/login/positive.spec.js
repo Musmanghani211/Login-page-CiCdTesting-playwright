@@ -1,4 +1,3 @@
-// tests/login/positive.spec.js
 import { test, expect } from '@playwright/test';
 
 test('Successful login with correct credentials', async ({ page }) => {
@@ -7,13 +6,14 @@ test('Successful login with correct credentials', async ({ page }) => {
   await page.fill('#username', 'standard_user');
   await page.fill('#password', 'secret_sauce');
 
-
+  // Listen for success alert
   page.on('dialog', dialog => {
     expect(dialog.message()).toBe('Login successful!');
     dialog.accept();
   });
 
   await page.click('button[type="submit"]');
-    await page.waitForSelector('[data-test="error"]', { timeout: 5000 });
-await expect(page.locator('[data-test="error"]')).toContainText('Epic sadface');
+
+  // Wait a bit for dialog to appear (CI friendly)
+  await page.waitForTimeout(1000);
 });
