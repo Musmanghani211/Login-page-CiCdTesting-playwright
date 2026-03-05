@@ -10,7 +10,7 @@ test('Login fails with incorrect credentials', async ({ page }) => {
 
   await expect(page.locator('[data-test="error"]')).toHaveText('Epic sadface: Username or password is incorrect.');
 });
-
+//last test for locked out user
 test('Locked out user shows correct error', async ({ page }) => {
   await page.goto('https://login-page-ci-cd-testing.vercel.app/');
 
