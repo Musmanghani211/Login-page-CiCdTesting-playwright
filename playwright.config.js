@@ -1,7 +1,7 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',  // ye folder path jahan login folder hai
+  testDir: './tests', // folder jahan login folder hai
   timeout: 30000,
   use: {
     headless: false,
