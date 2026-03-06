@@ -18,5 +18,5 @@ test('Locked out user shows correct error', async ({ page }) => {
   await page.fill('#password', 'secret_sauce');
   await page.click('button[type="submit"]');
   await page.waitForSelector('[data-test="error"]', { timeout: 5000 });
-  await expect(page.locator('[data-test="error"]')).toHaveText('sorry ye user locked ho chuka hai');
+  await expect(page.locator('[data-test="error"]')).toHaveText('Sorry, this user has been locked out');
 });
